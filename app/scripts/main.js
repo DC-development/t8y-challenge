@@ -18,43 +18,48 @@ require.config({
 
 require([
     'backbone',
-    'routes/home',
+    'routes/challenge',
     'views/home',
-    'routes/player',
-    'views/player'
-], function (Backbone, HomeRouter, HomeView, PlayerRouter, PlayerView ) {
+    'views/player',
+    'views/parallax'
+], function (Backbone, AppRouter, HomeView, PlayerView, ParallaxView ) {
 
-    var playerRouter = new PlayerRouter({
+    var appRouter = new AppRouter({
         routes: {
-            'player': 'player'
+            ''          :   'home',
+            'player'    :   'player',
+            'parallax'  :   'parallax'
         }
     });
-
-    var playerView = new PlayerView({
-        el: '#content'
-    });
-
-    playerRouter.on('route:player', function(){
-        console.log("loaded player page");
-        playerView.render();
-    });
-
-//----------------------------------------
     
-    var homeRouter = new HomeRouter({
-        routes: {
-            '': 'home'
-        }
+    var contentContainer = "#content";
+    
+    var playerView = new PlayerView({
+        el: contentContainer
     });
 
     var homeView = new HomeView({
-        el: '#content'
+        el: contentContainer
     });
 
-    homeRouter.on('route:home', function(){
+    var parallaxView = new ParallaxView({
+        el: contentContainer
+    });
+
+    appRouter.on('route:home', function(){
         console.log("loaded home page");
         homeView.render();
-    });
+    })
+        .on('route:player', function(){
+            console.log("loaded player page");
+            playerView.render();
+        })
+       .on('route:parallax', function(){
+        console.log("loaded parallax page");
+            parallaxView.render();
+        });
+
+
     
     Backbone.history.start();
 });

@@ -8,8 +8,8 @@ define([
 ], function ($, _, Backbone, JST) {
     'use strict';
 
-    var PlayerView = Backbone.View.extend({
-        template: JST['app/scripts/templates/player.ejs'],
+    var ParallaxView = Backbone.View.extend({
+        template: JST['app/scripts/templates/parallax.ejs'],
 
         tagName: 'div',
 
@@ -24,5 +24,5 @@ define([
         }
     });
 
-    return PlayerView;
+    return ParallaxView;
 });
