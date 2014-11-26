@@ -24,9 +24,6 @@ require([
     'views/player'
 ], function (Backbone, HomeRouter, HomeView, PlayerRouter, PlayerView ) {
 
-    
-    
-    
     var playerRouter = new PlayerRouter({
         routes: {
             'player': 'player'
