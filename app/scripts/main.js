@@ -18,31 +18,47 @@ require.config({
 
 require([
     'backbone',
+    'routes/home',
+    'views/home',
     'routes/player',
     'views/player'
-], function (Backbone, PlayerRouter, PlayerView) {
+], function (Backbone, HomeRouter, HomeView, PlayerRouter, PlayerView ) {
 
-   
-
-    var router = new PlayerRouter({
+    
+    
+    
+    var playerRouter = new PlayerRouter({
         routes: {
             'player': 'player'
         }
     });
 
-    var playerview = new PlayerView({
-        el: '.jumbotron',
-        render: function(){
-            this.$el.html('joooooooooo')
+    var playerView = new PlayerView({
+        el: '#content'
+    });
+
+    playerRouter.on('route:player', function(){
+        console.log("loaded player page");
+        playerView.render();
+    });
+
+//----------------------------------------
+    
+    var homeRouter = new HomeRouter({
+        routes: {
+            '': 'home'
         }
     });
 
-
-    router.on('route:player', function(){
-        console.log("loaded player page");
-        playerview.render();
+    var homeView = new HomeView({
+        el: '#content'
     });
 
+    homeRouter.on('route:home', function(){
+        console.log("loaded home page");
+        homeView.render();
+    });
+    
     Backbone.history.start();
 });
 
