@@ -33,13 +33,7 @@ define([
         var inertia = 4; //Alter this value to adjust the slow-down effect
         var parkHeight = imgHeight / inertia;
         var parkStep = parkHeight / imgHeight;
-/**
-        function pageScroll() {
-            var isScrolling = "true"
-            window.scrollBy(0,10); // horizontal and vertical scroll increments 
-            setTimeout('pageScroll()',10);
-        }
- **/    
+
         $.fn.scrollEnd = function(callback, timeout) {
             $(this).scroll(function(){ 
                 var $this = $(this);
@@ -51,22 +45,37 @@ define([
         };
        
         $(window).scrollEnd(function(){
-            
+ 
             var parallaxContent = $(".parallax-content.in-focus");
             var parentContainer = $(".parallax-content.in-focus").parent();
             
-            var yPos = Math.floor(parallaxContent.offset().top - $window.scrollTop());
+            //var yPos = Math.floor(parallaxContent.offset().top - $window.scrollTop());
             var yPosAbsolute = Math.floor(parentContainer.offset().top); 
             
             var yPosNextSibling = Math.floor(parentContainer.next().offset().top - $window.scrollTop());
             var yPosNextSiblingAbsolute = Math.floor(parentContainer.next().offset().top);
+             
+            if(yPosNextSibling < 200){
+                //window.scrollTo(0,yPosNextSiblingAbsolute);
+                var body = $("html, body");
+                body.animate({scrollTop:yPosNextSiblingAbsolute}, '500', 'swing', function() {
+                   // alert("Finished animating"); 
+                    var block = false;
+                });
+            }else{
+                var body = $("html, body");
+                body.animate({scrollTop:yPosAbsolute}, '500', 'swing', function() {
+                   // alert("Finished animating");
+                    var block = false;
+                });
+            } 
             
-            console.log('stopped scrolling focused objects is at:'+ yPos+' and at absolute: '+ yPosAbsolute); 
-            console.log('next to focused object is at:'+ yPosNextSibling +'and at absolute: '+ yPosNextSiblingAbsolute); 
-        }, 200);
+            //console.log('stopped scrolling focused objects is at:'+ yPos+' and at absolute: '+ yPosAbsolute); 
+            //console.log('next to focused object is at:'+ yPosNextSibling +'and at absolute: '+ yPosNextSiblingAbsolute); 
+        }, 500);
    
         $window.scroll(function() { 
-            
+             
             /**
              * Get all parallax containers within the function
              * @Todo: Would be better to fetch it on init once but the way the script doesnt fire in response on backbone-route
@@ -91,7 +100,7 @@ define([
                     //console.log(imgHeight +"-"+ ps +"*"+parkStep+"="+ d); 
                 }else if(container.css("position")=="fixed"){ 
                     container.removeClass("in-focus");
-                    container.css('top', ''); 
+                    container.css('top', '');
                 }
                  
                 //container.find(".pos").text(yPos +"-"+ ps); 
