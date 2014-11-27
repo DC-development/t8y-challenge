@@ -22,7 +22,7 @@ require([
     'views/home',
     'views/player',
     'views/parallax'
-], function (Backbone, AppRouter, HomeView, PlayerView, ParallaxView ) {
+], function (Backbone,AppRouter, HomeView, PlayerView, ParallaxView ) {
 
     var appRouter = new AppRouter({
         routes: {
@@ -59,9 +59,10 @@ require([
             parallaxView.render();
         });
 
-
+    
     
     Backbone.history.start();
+   
+
 });
 
- 
