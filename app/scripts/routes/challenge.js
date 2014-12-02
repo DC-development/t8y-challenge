@@ -6,10 +6,10 @@ define([
 ], function ($, Backbone) {
     'use strict';
 
-    var HomeRouter = Backbone.Router.extend({
+    var ChallengeRouter = Backbone.Router.extend({
         routes: {
         }
     });
 
-    return HomeRouter;
+    return ChallengeRouter;
 });

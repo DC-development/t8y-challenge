@@ -26,8 +26,14 @@
     "load-grunt-tasks": "^0.6.0",
     "connect-livereload": "^0.4.0",
     "time-grunt": "^1.0.0",
-    "jshint-stylish": "^1.0.0"
-  },
+    "jshint-stylish": "^1.0.0",
+      
+    "imagemin": "3.1.0",
+    "imagemin-jpegtran": "4.0.0",
+    "imagemin-gifsicle" : "4.0.0",
+    "imagemin-optipng" : "4.0.0",
+    "imagemin-pngquant" : ""
+},
   "engines": {
     "node": ">=0.10.0"
   }

@@ -1,0 +1,54 @@
+$parallaxImageHeight: 540px;
+$parallaxImageWidth: 698px;
+
+.parallax-container {
+  position: relative;
+  height: $parallaxImageHeight;
+  width: $parallaxImageWidth;
+  background-color: $gray-darker;
+  
+}
+
+#image_a { background-image: url(../images/a.jpg);}
+#image_b { background-image: url(../images/b.jpg);}
+#image_c { background-image: url(../images/c.jpg);}
+#image_d { background-image: url(../images/d.jpg);}
+#image_e { background-image: url(../images/e.jpg);}
+
+#image_f { background-image: url(../images/a.jpg);}
+#image_g { background-image: url(../images/b.jpg);}
+#image_h { background-image: url(../images/c.jpg);}
+#image_i { background-image: url(../images/d.jpg);}
+#image_j { background-image: url(../images/e.jpg);}
+
+#image_k { background-image: url(../images/a.jpg);}
+#image_l { background-image: url(../images/b.jpg);}
+#image_m { background-image: url(../images/c.jpg);}
+#image_n { background-image: url(../images/d.jpg);}
+#image_o { background-image: url(../images/e.jpg);}
+
+.parallax-content.in-focus {
+  position: fixed;
+}
+
+.parallax-content{
+  position: relative;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: $parallaxImageHeight;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  width: 698px;
+  //opacity: 0.5;
+  h2 {
+    margin-top:0;
+    top: 122px;
+    left: 60%;
+    position: absolute;
+  }
+}
+.parallax-content.first { 
+  opacity: 1;
+}
+
