@@ -1,7 +1,7 @@
 t8y-challenge
 =============
 
-pull repo
+#clone 
 
 #run npm install
 
