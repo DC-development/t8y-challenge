@@ -1,10 +1,9 @@
 t8y-challenge
 =============
 
-Will need compass.
-
-
 #clone 
+
+#### run npm install
 
 ####run bower install
 
