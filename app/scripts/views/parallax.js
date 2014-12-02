@@ -110,11 +110,7 @@ define([
                 } else if (container.css("position") == "fixed") {
                     container.removeClass("in-focus");
                     container.css('top', '');
-                } else {
-                    var ps = Math.floor(container.parent().next().offset().top - $window.scrollTop());
-                    container.css('opacity', ((1 * imgHeight) / ps));
                 }
-
                 //container.find(".pos").text((1*imgHeight)/ps);
                 //console.log(p , id); 
             });
